@@ -14,10 +14,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Users extends RootBaseEntity{
-    @Id
-    @GeneratedValue(generator = "system-uuid")
-    @GenericGenerator(name = "system-uuid", strategy = "uuid")
-    private String id;
+
 
     private String username;
     private String password;
