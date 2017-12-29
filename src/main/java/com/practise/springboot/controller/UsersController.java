@@ -1,6 +1,6 @@
 package com.practise.springboot.controller;
 
-import com.practise.springboot.controller.dto.Users;
+import com.practise.orm.entity.Users;
 import com.practise.springboot.response.ResponseEntity;
 import com.practise.springboot.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
