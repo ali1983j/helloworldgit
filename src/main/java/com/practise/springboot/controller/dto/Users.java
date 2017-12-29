@@ -1,6 +1,7 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
 package com.practise.springboot.controller.dto;
 
+import com.practise.springboot.audit.RootBaseEntity;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ import javax.persistence.Id;
  */
 
 @Entity
-public class Users {
+public class Users extends RootBaseEntity{
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name = "system-uuid", strategy = "uuid")

@@ -1,6 +1,7 @@
 package com.practise.springboot.controller;
 
 import com.practise.springboot.controller.dto.Topic;
+import com.practise.springboot.response.ResponseEntity;
 import com.practise.springboot.service.TopicService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class TopicController {
     private TopicService topicService;
 
     @RequestMapping("/topics")
-    public ResponseEntity<List<Topic>>  getAllTipics(){
+    public ResponseEntity<List<Topic>> getAllTipics(){
 
         return topicService.getAllTopics();
 

@@ -1,7 +1,7 @@
 package com.practise.springboot.controller;
 
 import com.practise.springboot.controller.dto.Users;
-import com.practise.springboot.service.TopicService;
+import com.practise.springboot.response.ResponseEntity;
 import com.practise.springboot.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -19,7 +19,7 @@ public class UsersController {
     private UsersService usersService;
 
     @RequestMapping("/users")
-    public ResponseEntity<List<Users>>  getAllTipics(){
+    public ResponseEntity<List<Users>> getAllTipics(){
         return usersService.findAll();
     }
 

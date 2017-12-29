@@ -1,5 +1,6 @@
 package com.practise.springboot.controller;
 
+import com.practise.springboot.response.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
