@@ -2,11 +2,12 @@
 package com.practise.orm.entity;
 
 import com.practise.orm.entity.audit.BaseEntity;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.EntityListeners;
 import javax.persistence.Table;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Mohammed Shoukath Ali
@@ -22,6 +23,8 @@ public class Users extends BaseEntity {
     private String email;
     private String firstname;
     private String lastname;
+    @ElementCollection
+    private Set<String> authorities = new HashSet<>();
 
     public String getUsername() {
         return username;

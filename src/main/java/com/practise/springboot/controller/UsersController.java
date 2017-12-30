@@ -33,4 +33,9 @@ public class UsersController {
     public void addUser(@RequestBody Users users){
         usersService.create(users);
     }
+
+    @RequestMapping(method = RequestMethod.PUT, value = "/users")
+    public void updateUsers(@RequestBody Users users){
+        usersService.create(users);
+    }
 }

@@ -1,5 +1,5 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
-package com.practise.springboot;
+package com.practise.dto;
 
 import com.practise.orm.entity.Users;
 import org.springframework.security.core.GrantedAuthority;

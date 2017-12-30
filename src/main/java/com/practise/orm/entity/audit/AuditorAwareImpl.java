@@ -1,7 +1,7 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
 package com.practise.orm.entity.audit;
 
-import com.practise.springboot.CustomUserDetails;
+import com.practise.dto.CustomUserDetails;
 import org.springframework.data.domain.AuditorAware;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;

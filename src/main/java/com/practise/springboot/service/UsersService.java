@@ -28,9 +28,19 @@ public class UsersService {
         BCryptPasswordEncoder cryptPasswordEncoder = new BCryptPasswordEncoder();
 
         users.setPassword(cryptPasswordEncoder.encode(users.getPassword()));
+        ResponseEntity<Users> response = new ResponseEntity<>(usersRepository.save(users));
+        return response;
+    }
+
+    public ResponseEntity<Users> update(Users users){
+
+        BCryptPasswordEncoder cryptPasswordEncoder = new BCryptPasswordEncoder();
+
+        users.setPassword(cryptPasswordEncoder.encode(users.getPassword()));
         ResponseEntity<Users> response = new ResponseEntity<>(usersRepository.saveAndFlush(users));
         return response;
     }
+
 
     public ResponseEntity<List<Users>> findAll(){
         List<Users> lst = new ArrayList<Users>();
