@@ -1,5 +1,5 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
-package com.practise.orm.entity.audit;
+package com.practise.orm.entity.security.audit;
 
 import com.practise.dto.CustomUserDetails;
 import org.springframework.data.domain.AuditorAware;

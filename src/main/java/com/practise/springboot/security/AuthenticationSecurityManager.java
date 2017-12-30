@@ -1,7 +1,7 @@
 package com.practise.springboot.security;
 
 import com.practise.dto.CustomUserDetails;
-import com.practise.orm.entity.Users;
+import com.practise.orm.entity.security.Users;
 import com.practise.orm.repository.UsersRepository;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;

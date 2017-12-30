@@ -1,6 +1,6 @@
 package com.practise.springboot.controller;
 
-import com.practise.orm.entity.Users;
+import com.practise.schema.security.Users;
 import com.practise.springboot.response.ResponseEntity;
 import com.practise.springboot.service.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ public class UsersController {
     private UsersService usersService;
 
     @RequestMapping("/users")
-    public ResponseEntity<List<Users>> getAllTipics(){
+    public ResponseEntity<List<Users>> getAll(){
         return usersService.findAll();
     }
 
@@ -29,13 +29,13 @@ public class UsersController {
 //
 //    }
 
-    @RequestMapping(method = RequestMethod.POST, value = "/users")
-    public void addUser(@RequestBody Users users){
-        usersService.create(users);
-    }
-
-    @RequestMapping(method = RequestMethod.PUT, value = "/users")
-    public void updateUsers(@RequestBody Users users){
-        usersService.create(users);
-    }
+//    @RequestMapping(method = RequestMethod.POST, value = "/users")
+//    public void addUser(@RequestBody Users users){
+//        usersService.create(users);
+//    }
+//
+//    @RequestMapping(method = RequestMethod.PUT, value = "/users")
+//    public void updateUsers(@RequestBody Users users){
+//        usersService.create(users);
+//    }
 }

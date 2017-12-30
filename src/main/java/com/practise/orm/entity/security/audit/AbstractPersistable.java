@@ -1,4 +1,4 @@
-package com.practise.orm.entity.audit;
+package com.practise.orm.entity.security.audit;
 
 
 import org.hibernate.annotations.GenericGenerator;
@@ -37,9 +37,7 @@ import java.io.Serializable;
 public  class AbstractPersistable<PK extends Serializable>  implements Persistable<PK>{
 
 
-    private static final long serialVersionUID = -5554308939380869754L;
-
-
+    private static final long serialVersionUID = -3526260351359965879L;
     //@GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @GeneratedValue(generator = "system-uuid")

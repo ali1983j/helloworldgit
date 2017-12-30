@@ -1,7 +1,7 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
 package com.practise.dto;
 
-import com.practise.orm.entity.Users;
+import com.practise.orm.entity.security.Users;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 

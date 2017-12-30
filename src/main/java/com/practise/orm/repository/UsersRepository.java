@@ -1,7 +1,6 @@
 package com.practise.orm.repository;
 
-import com.practise.orm.entity.Users;
-import org.springframework.beans.factory.annotation.Qualifier;
+import com.practise.orm.entity.security.Users;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -8,6 +8,7 @@ import java.io.Serializable;
 public class ResponseEntity<T> implements Serializable {
 
 
+    private static final long serialVersionUID = 2631379955711104376L;
     private T results;
     private Long totalElements;
     private Integer totalPages;

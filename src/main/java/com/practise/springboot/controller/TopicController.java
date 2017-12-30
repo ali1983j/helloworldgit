@@ -1,6 +1,6 @@
 //package com.practise.springboot.controller;
 //
-//import com.practise.orm.entity.Topic;
+//import Topic;
 //import com.practise.springboot.response.ResponseEntity;
 //import com.practise.springboot.service.TopicService;
 //import org.springframework.beans.factory.annotation.Autowired;

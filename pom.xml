@@ -92,6 +92,14 @@
             <version>9.4-1206-jdbc42</version>
         </dependency>
 
+        <!-- https://mvnrepository.com/artifact/ma.glasnost.orika/orika-core -->
+        <dependency>
+            <groupId>ma.glasnost.orika</groupId>
+            <artifactId>orika-core</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
+
 
     </dependencies>
 

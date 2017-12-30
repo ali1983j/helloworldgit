@@ -1,6 +1,6 @@
-package com.practise.orm.entity;
+package com.practise.orm.entity.security;
 
-import com.practise.orm.entity.audit.BaseEntity;
+import com.practise.orm.entity.security.audit.BaseEntity;
 
 import javax.persistence.Entity;
 

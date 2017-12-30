@@ -1,6 +1,6 @@
 package com.practise.orm.repository;
 
-import com.practise.orm.entity.Topic;
+import com.practise.orm.entity.security.Topic;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

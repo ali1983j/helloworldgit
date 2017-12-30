@@ -1,4 +1,4 @@
-package com.practise.orm.entity.audit;
+package com.practise.orm.entity.security.audit;
 
 
 import javax.persistence.MappedSuperclass;

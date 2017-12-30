@@ -1,7 +1,7 @@
 //package com.practise.springboot.service;
 //
 //import com.practise.springboot.response.ResponseEntity;
-//import com.practise.orm.entity.Topic;
+//import Topic;
 //import com.practise.orm.repository.TopicRepository;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.stereotype.Service;
