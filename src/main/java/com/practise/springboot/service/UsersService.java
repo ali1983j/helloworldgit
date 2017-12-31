@@ -49,7 +49,8 @@ public class UsersService {
     public ResponseEntity<List<com.practise.schema.security.Users>> findAll(){
         List<com.practise.schema.security.Users> lst = new ArrayList<>();
       ResponseEntity<List<com.practise.schema.security.Users>> responseEntity =  new ResponseEntity<>();
-      List<com.practise.schema.security.Users> iterable = usersConverter.convertToList(usersRepository.findAll());
+        List<Users> all = usersRepository.findAll();
+        List<com.practise.schema.security.Users> iterable = usersConverter.convertToList(all);
 
        // iterable.forEach(lst :: add);
 

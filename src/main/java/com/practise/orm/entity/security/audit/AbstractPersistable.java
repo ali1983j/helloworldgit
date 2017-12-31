@@ -46,7 +46,7 @@ public  class AbstractPersistable<PK extends Serializable>  implements Persistab
 
     @Override
     public PK getId() {
-        return null;
+        return id;
     }
 
     /**
