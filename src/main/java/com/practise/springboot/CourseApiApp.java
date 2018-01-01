@@ -13,7 +13,7 @@ import org.springframework.web.context.WebApplicationContext;
  * Created by root on 26/12/17.
  */
 @ComponentScan(basePackages = {
-        "com.practise"
+        "com.practise", "com.sky"
 })
 @SpringBootApplication
 @EnableAutoConfiguration

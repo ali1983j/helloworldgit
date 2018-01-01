@@ -8,34 +8,46 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+import static com.practise.springboot.controller.AbstractBaseController.USERS;
+
 /**
- * Created by root on 26/12/17.
+ * Created by Mohammed Shoukath Ali on 26/12/17.
  */
 
 @RestController
-public class UsersController {
+@RequestMapping(USERS)
+public class UsersController extends AbstractBaseController {
 
     @Autowired
     private UsersService usersService;
 
+    private final static String USERS_SIGNUP = SLASH + "sign-up";
+
     @RequestMapping("/users")
     public ResponseEntity<List<Users>> getAll(){
-        return usersService.findAll();
+        return usersService.findAllEntitled();
     }
 
-//    @RequestMapping("/topics/{id}")
-//    public ResponseEntity<Topic> getTopic(@PathVariable("id") String id){
-//        return topicService.getTopic(id);
-//
-//    }
+    @RequestMapping(value = FIND_BY_ID_REQUEST, method = RequestMethod.GET)
+    public ResponseEntity<Users> getTopic(@PathVariable("id") String id){
+        return usersService.findByPkId(id);
 
-//    @RequestMapping(method = RequestMethod.POST, value = "/users")
-//    public void addUser(@RequestBody Users users){
-//        usersService.create(users);
-//    }
-//
-//    @RequestMapping(method = RequestMethod.PUT, value = "/users")
-//    public void updateUsers(@RequestBody Users users){
-//        usersService.create(users);
-//    }
+    }
+
+    @RequestMapping(value = CREATE_REQUEST , method = RequestMethod.POST)
+    public void addUser(@RequestBody Users users){
+        usersService.create(users);
+    }
+
+    @RequestMapping(value = UPDATE_REQUEST,  method = RequestMethod.PUT)
+    public void updateUsers(@RequestBody Users users){
+        usersService.create(users);
+    }
+
+    @RequestMapping(value = USERS_SIGNUP, method = RequestMethod.POST)
+    public @ResponseBody ResponseEntity<Users> signup(@RequestBody Users users){
+
+        logger.info("Personal account signup [{}]", users.getUsername());
+        return usersService.signup(users);
+    }
 }

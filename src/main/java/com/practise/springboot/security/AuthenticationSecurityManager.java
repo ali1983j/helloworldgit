@@ -3,6 +3,7 @@ package com.practise.springboot.security;
 import com.practise.dto.CustomUserDetails;
 import com.practise.orm.entity.security.Users;
 import com.practise.orm.repository.UsersRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -26,6 +27,7 @@ import java.util.Collection;
 @Qualifier(value = "authenticationSecurityManager")
 public class AuthenticationSecurityManager implements AuthenticationProvider {
 
+    @Autowired
     private UsersRepository usersRepository;
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {

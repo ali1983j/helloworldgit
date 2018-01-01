@@ -1,62 +1,33 @@
 package com.practise.springboot.service;
 
-import com.practise.converter.security.UsersConverter;
-import com.practise.springboot.response.ResponseEntity;
-import com.practise.orm.entity.security.Users;
-import com.practise.orm.repository.UsersRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.transaction.Transactional;
-import java.util.ArrayList;
+
+import com.practise.schema.security.Users;
+import com.practise.service.base.GenericService;
+import com.practise.springboot.response.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import com.sky.service.util.SecurityRoles.*;
+
 import java.util.List;
 
+import static com.sky.service.util.SecurityRoles.ROLE_USER;
+
 /**
- * Created by root on 28/12/17.
+ * Created by Mohammed Shoukath Ali on 28/12/17.
  */
-@Service
-@Transactional
-public class UsersService {
 
-    private UsersRepository usersRepository;
-    private UsersConverter usersConverter;
-
-    @Autowired
-    public UsersService(UsersRepository usersRepository, UsersConverter converter){
-        this.usersRepository = usersRepository;
-        this.usersConverter = converter;
-    }
-    public ResponseEntity<Users> create(Users users){
-
-        BCryptPasswordEncoder cryptPasswordEncoder = new BCryptPasswordEncoder();
-
-        users.setPassword(cryptPasswordEncoder.encode(users.getPassword()));
-        ResponseEntity<Users> response = new ResponseEntity<>(usersRepository.save(users));
-        return response;
-    }
-
-    public ResponseEntity<Users> update(Users users){
-
-        BCryptPasswordEncoder cryptPasswordEncoder = new BCryptPasswordEncoder();
-
-        users.setPassword(cryptPasswordEncoder.encode(users.getPassword()));
-        ResponseEntity<Users> response = new ResponseEntity<>(usersRepository.saveAndFlush(users));
-        return response;
-    }
+public interface UsersService extends GenericService<Users, String> {
 
 
-    public ResponseEntity<List<com.practise.schema.security.Users>> findAll(){
-        List<com.practise.schema.security.Users> lst = new ArrayList<>();
-      ResponseEntity<List<com.practise.schema.security.Users>> responseEntity =  new ResponseEntity<>();
-        List<Users> all = usersRepository.findAll();
-        List<com.practise.schema.security.Users> iterable = usersConverter.convertToList(all);
-
-       // iterable.forEach(lst :: add);
-
-        responseEntity.setResults(iterable);
-      return responseEntity;
-    }
+    @Secured({ROLE_USER})
+    public ResponseEntity<Users> findByPkId(String id);
+    @Secured({ROLE_USER})
+    public ResponseEntity<Users> create(Users users);
+    @Secured({ROLE_USER})
+    public ResponseEntity<Users> update(Users users);
+    @Secured({ROLE_USER})
+    public ResponseEntity<List<Users>> findAllEntitled();
+    public ResponseEntity<Users> signup(Users users);
 
 
 }

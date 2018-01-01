@@ -1,0 +1,194 @@
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD HTML 4.01//EN"
+        "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head profile="http://www.w3.org/2005/10/profile">
+    <style>
+    </style>
+    <meta charset="utf-8"/>
+    <title>HyperCloud™ Public Cloud, On-Premises</title>
+    <meta name="keywords"
+          content="DCHQ, linux containers, docker, repository, automation, java, ruby, php, python, redhat, microsoft azure, rackspace, digitalocean, vsphere, cloudstack, openstack, docker compose, weave"/>
+    <meta name="description"
+          content="HyperCloud DCHQ
+           is a deployment automation, life-cycle management & governance platform for Docker-based applications. Developers can model, deploy, backup, update and monitor container-based applications in seconds."/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="google-site-verification"
+          content="3BzrvndCCvAeBe1ZNCfSwi5vwYbwIyfbQJNLEocEqbo"/>
+    <link rel="stylesheet" href="/css/all-welcome.min.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Roboto"
+          rel="stylesheet">
+</head>
+
+<body ng-app="signupApp" ng-controller="SignupCtrl" class="parent">
+<div class="child1">
+    <div class="center">
+        <img ng-init="UIsignup=false"
+             src="http://hypergrid.com/wp-content/themes/hypergrid/img/logo-lg-hypergrid2.png"
+             height="19px" width="130px"/>
+    </div>
+    <div class="center forgot-top-margin">
+			<span class="signup-text1">Welcome to <span
+                    class="text-style-1">HyperCloud<sup class="col">TM</sup><span class="signup-text4">SaaS</span></span></span>
+    </div>
+    <div class="center">
+        <table class="table1">
+
+            <tr>
+                <td class="td1"><span ng-click="UIsignup=!UIsignup;"
+                                      class="signup-table-2{{UIsignup==true?'-active':''}}"
+                >Sign Up</span></td>
+                <td class="td2"><span class="Login-table-1">&nbsp;</span></td>
+                <td class="td3 "><span ng-click="UIsignup=!UIsignup;"
+                                       class="signup-table-2{{UIsignup==false?'-active':''}}">Login </span></td>
+            </tr>
+            <tr class="center">
+                <td class="td4"><img ng-if="UIsignup" style="display: block;"
+                                     src="/landing/img/triangle-active.png"/></td>
+                <td class="td5">&nbsp;</td>
+                <td class="td4"><img ng-if="!UIsignup" style="display: block;"
+                                     src="/landing/img/triangle-active.png"/></td>
+            </tr>
+        </table>
+    </div>
+
+    <div ng-if="UIsignup" class="child childsignup">
+
+        <div class="center  ">
+            <span class="signup-text2"> Sign Up for Free</span>
+        </div>
+        <form class="hidden" id="signinFormId" action="/login"
+              onSubmit="return setSubmitUrl(this);" method='POST'
+        >
+            <input id="LoginUser" type="hidden" name="username" value="{{leaduser.email}}"/>
+            <input id="LoginPassword" type="hidden" name="password"
+                   value="{{leaduser.password}}"/>
+        </form>
+
+        <form name="selfsignupform" class="ng-pristine ng-valid">
+            <span class="indexText">Full Name :</span>
+            <div class="label-text-box-space-1 center">&nbsp;</div>
+            <div class="center"
+                 ng-class="{ 'has-error' : selfsignupform.fullname.$invalid && !selfsignupform.fullname.$pristine,'is-valid' : !selfsignupform.fullname.$pristine && selfsignupform.fullname.$valid }">
+                <input class="labelForm " name="fullname" data-ng-model="user.name"
+                       pattern=".{3,}"
+                       title="valid full-name"
+                       ng-required="true">
+            </div>
+            <div class="label-text-box-space-2">&nbsp;</div>
+            <span class="indexText">Company Name :</span>
+            <div class="label-text-box-space-1">&nbsp;</div>
+            <div class="center">
+                <input class="labelForm" data-ng-model="user.company"
+                       title="Company-name"
+                >
+            </div>
+            <div class="label-text-box-space-2">&nbsp;</div>
+            <span class="indexText">Email ID :</span>
+            <div class="label-text-box-space-1">&nbsp;</div>
+            <div class="center"
+                 ng-class="{ 'has-error' : selfsignupform.signupemail.$invalid && !selfsignupform.signupemail.$pristine,'is-valid' : !selfsignupform.signupemail.$pristine && selfsignupform.signupemail.$valid }">
+                <input class="labelForm" data-ng-model="user.email" name="signupemail" type="email"
+                       ng-required="true">
+
+            </div>
+            <div class="label-text-box-space-2">&nbsp;</div>
+            <span class="indexText">Password : </span>
+            <div class="label-text-box-space-1">&nbsp;</div>
+
+            <div class="center"
+                 ng-class="{ 'has-error' : selfsignupform.signuppassword.$invalid && !selfsignupform.signuppassword.$pristine,'is-valid' : !selfsignupform.signuppassword.$pristine && selfsignupform.signuppassword.$valid }">
+                <input class="labelForm" data-ng-model="user.pass" name="signuppassword"
+                       type="password"
+                       title="Minimum 8 characters" pattern=".{8,}"
+                       ng-required="true">
+            </div>
+            <div class="label-text-box-space-4"> &nbsp;</div>
+            <span class="indexText"> <label class="radio-text-left"><input
+                    type="radio" name="oddsPref" ng-model="user.accountType" value="Developer"/>
+						Personal</label>
+
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label
+                        class="radio-text"><input type="radio" ng-model="user.accountType"
+                                                  name="oddsPref" value="Tenant"/> Team</label>
+				</span>
+            <div class="label-text-box-space-2 center m-t-sm"> {{res}}</div>
+            <fieldset ng-disabled="isSignup" class="borderless">
+                <button ng-disabled="selfsignupform.$invalid || isSignup " ng-if="user.accountType=='Developer'"
+                        type="submit" class="butn{{angular.isUndefined(res)?'':'-les-top'}} secondary-button"
+                        data-ng-click="selfsignupform.$valid && IndividualJoin()">
+                    <span ng-show="!isSignup">Sign up</span><span ng-show="isSignup">Please Wait &nbsp;<i
+                        class="fa fa-refresh  fa-spin fa-fw "></i></span>
+                </button>
+                <button ng-disabled="selfsignupform.$invalid || isTenantSignup" ng-if="user.accountType=='Tenant'"
+                        type="submit" class="butn{{angular.isUndefined(res)?'':'-les-top'}} secondary-button"
+                        data-ng-click="selfsignupform.$valid && tenantJoin()">
+                    <span ng-show="!isSignup">Sign up</span><span ng-show="isSignup">Please Wait &nbsp;<i
+                        class="fa fa-refresh  fa-spin fa-fw "></i></span>
+                </button>
+                <a class="learnMore" href="http://www.hypergrid.com">Learn More</a>
+            </fieldset>
+
+        </form>
+    </div>
+    <div ng-if="!UIsignup" class="child childLogin">
+
+        <div class="center  ">
+            <span class="Sign-in-text1"> Sign in</span>
+        </div>
+
+
+        <form name="signinform" role="form" novalidate action="/login" onSubmit="return setSubmitUrl(this);"
+              method='POST'
+              class="form-validation">
+            <span class="indexText">Email ID :</span>
+            <div class="label-text-box-space-1">&nbsp;</div>
+            <div class="center">
+                <input class="labelForm" id="LoginUser" ng-model="signinform.emailId"
+                       title="valid email" placeholder="email@domain.com or tenant\\email@domain.com" name="username" ng-required="true">
+            </div>
+            <div class="label-text-box-space-2">&nbsp;</div>
+            <span class="indexText">Password : </span>
+            <div class="label-text-box-space-1">&nbsp;</div>
+
+            <div class="center">
+                <input type="password" class="labelForm"
+                       name="password"
+                       title=""
+                       ng-model="signinform.password"
+                       ng-required="true">
+            </div>
+
+            <button type="submit" class="butn secondary-button"
+                    ng-disabled='signinform.$invalid'>SIGN IN
+            </button>
+
+            <a class="signin-forgot-password" href="/forgot_password.html">Forgot Password?</a>
+        </form>
+    </div>
+</div>
+
+
+<script type="text/javascript" src="/js/all-main-index.min.js"></script>
+<script>
+		(function(i, s, o, g, r, a, m) {
+			i['GoogleAnalyticsObject'] = r;
+			i[r] = i[r] || function() {
+				(i[r].q = i[r].q || []).push(arguments)
+			}, i[r].l = 1 * new Date();
+			a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+			a.async = 1;
+			a.src = g;
+			m.parentNode.insertBefore(a, m)
+		})(window, document, 'script',
+				'//www.google-analytics.com/analytics.js', 'ga');
+
+		ga('create', 'UA-59890537-1', 'auto');
+		ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,14 +1,9 @@
 /* COPYRIGHT (C) 2015 DCHQ. All Rights Reserved. */
 package com.practise.schema.security;
 
-import com.practise.orm.entity.security.Organization;
-import com.practise.orm.entity.security.Profile;
-import com.practise.orm.entity.security.audit.TenantBaseEntity;
 import com.practise.schema.beans.TenantEntityBase;
 
-import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author Mohammed Shoukath Ali
@@ -24,26 +19,24 @@ public class Users extends TenantEntityBase {
     private String email;
     private String firstname;
     private String lastname;
-    private String enabled;
+    private Boolean enabled;
 
-    private Set<String> authorities = new HashSet<>();
+    private List<String> authorities;
 
 
-    public String getEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
-
-    public Set<String> getAuthorities() {
-        return authorities;
-    }
-
-    public void setAuthorities(Set<String> authorities) {
-        this.authorities = authorities;
+    public List<String> getAuthorities() {
+        if (authorities == null) {
+            authorities = new ArrayList<String>();
+        }
+        return this.authorities;
     }
 
     public String getUsername() {
@@ -84,5 +77,31 @@ public class Users extends TenantEntityBase {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Users withAuthorities(String... values) {
+        if (values != null) {
+            for (String value : values) {
+                getAuthorities().add(value);
+            }
+        }
+        return this;
+    }
+
+    public Users withAuthorities(Collection<String> values) {
+        if (values != null) {
+            getAuthorities().addAll(values);
+        }
+        return this;
+    }
+
+    public Users withInactive(boolean value) {
+        setInactive(value);
+        return this;
+    }
+
+    public Users withDeleted(boolean value) {
+        setDeleted(value);
+        return this;
     }
 }

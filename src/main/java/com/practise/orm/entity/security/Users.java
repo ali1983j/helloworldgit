@@ -23,7 +23,7 @@ public class Users extends TenantBaseEntity {
     private String email;
     private String firstname;
     private String lastname;
-    private String enabled;
+    private Boolean enabled = false;
     @ManyToOne(cascade = CascadeType.REFRESH, fetch = FetchType.LAZY, optional = true)
     private Organization organization;
     @ElementCollection
@@ -40,12 +40,11 @@ public class Users extends TenantBaseEntity {
     }
 
 
-
-    public String getEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(String enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
